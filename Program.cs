@@ -26,33 +26,35 @@ namespace ConsoleApp1
     {
         public static long QueueTime(int[] customers, int n)
         {
-            int x, i;
-            int count = 0;
-            int ind = n - 1;
-            int[] cassa = new int[n];
+          int x, i;
+          int count = 0;
+          int ind = n - 1;
+          int[] cassa = new int[n];
 
-            for (i = 0; i < n; i++)
-            {
-                cassa[i] = customers[i];
-            }
+          for (i = 0; i < n; i++)
+           {
+            cassa[i] = customers[i];
+           }
 
-            while (true)
+           while (true)
             {
-                for (i = 0; i < n; i++)
+              for (i = 0; i < n; i++)
                 {
-                    cassa[i] -= 1;
-                    count += 1;
-                    if (cassa[i] == 0)
-                    {
-                        if (customers.Length - 1 <= ind && cassa.Max() == 0)
+                 cassa[i] -= 1;
+                 count += 1;
+                 if (cassa[i] == 0)
+                  {
+                    if (customers.Length - 1 <= ind && cassa.Max() == 0)
+                     {
+                       while (count % n != 0)
                         {
-                            while (count % n != 0)
-                            {
-                                count += 1;
-                            }
-                            x = count / n;
-                            Console.WriteLine(x);
-                            return 0;
+                          count += 1;
+                        }
+                       x = count / n;
+                       Console.WriteLine(x);
+                        
+                       return count/n;
+                        
                         }
                         else if (ind < customers.Length - 1)
                         {
